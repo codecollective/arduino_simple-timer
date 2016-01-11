@@ -16,6 +16,7 @@
 		void reset();
 		void start();
 		int get();
+		long status();
 	  private:
 		long _t;
 	};
