@@ -7,16 +7,15 @@
 #include "Arduino.h"
 #include "timer.h"
 
-long timerHelpFlag = 0;
 
-timer::timer(long t)
-{
+timer::timer(long t){
 	_t = t;
+	_timerHelpFlag = 0;
 }
 
-//Check if the timer allready runn out, it will return `true` if it has run out, else it wil return `false`
+//Check if the timer allready run out, it will return `true` if it has run out, else it wil return `false`
 int timer::get(){
-  long ms = millis() - timerHelpFlag;
+  long ms = millis() - _timerHelpFlag;
 
   if(ms >= _t){
     this->reset();
@@ -26,9 +25,9 @@ int timer::get(){
   }
 }
 
-//Get te current procecced time
+//Get te current processed time
 long timer::status(){
-	long ms = millis() - timerHelpFlag;
+	long ms = millis() - _timerHelpFlag;
 	return ms;
 }
 
@@ -45,5 +44,5 @@ void timer::start(){
 
 //Reset the current timer time
 void timer::reset(){
-    timerHelpFlag = millis();
+    _timerHelpFlag = millis();
 }

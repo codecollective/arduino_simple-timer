@@ -19,6 +19,7 @@
 		long status();
 	  private:
 		long _t;
+		long _timerHelpFlag;
 	};
 
 #endif
